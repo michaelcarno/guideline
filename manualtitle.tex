@@ -1,0 +1,127 @@
+%! TeX root = work-template.tex
+\usepackage{background}
+\usepackage{gitinfo2}
+\usepackage{datetime2}
+
+
+\newcommand{\sidebar}{\sffamily MDX-270-16/1~~~~{\gitBranch}:{\gitAbbrevHash}~~~~\gitAuthorName~~~~\gitAuthorIsoDate}
+\backgroundsetup{
+	scale=1,
+	angle=0,
+	color=black,
+	opacity=1,
+	%position=current page.west, 
+	%vshift=-0.3cm,%nodeanchor=south east, 
+	contents={
+			\begin{tikzpicture}[remember picture, overlay]
+				\node at (current page.west) [xshift=0.5cm, opacity=0.5, rotate=90]{\sidebar};
+				%\node at (current page.north) [yshift=-1cm, opacity=0.5]{\sidebar};
+				\node at (current page.east) [xshift=-0.5cm, opacity=0.5, rotate=-90]{\sffamily{gen: \DTMnow }};
+				\node at (current page.center) [rotate=60,scale=7,opacity=0.2,color=red!30!white]{\sffamily  CONFIDENTIAL} ;
+			\end{tikzpicture}
+		}
+}
+
+\newcommand{\ManualTitlePageTitle}{USER MANUAL\\{\bf\footnotesize for web projects based on MODX 2.7.0}}
+\newcommand{\ManualTitlePageAbstract}{The User Manual contains all essential information for the user to make full use of the information system.  This manual includes a description of the system functions and capabilities, contingencies and alternate modes of operation, and step-by-step  procedures for system access and use.}
+
+\newcommand{\ManualTitlePageDate}{Approved \DTMdisplaydate{2019}{01}{05}\\}
+\newcommand{\ManualTitlePageKeywords}{management, modx, content}
+
+\newcommand{\ManualTitlePageCompany}{SomeSoftware Company}
+\newcommand{\ManualTitlePageDev}{Bondarenko M.A.}
+\newcommand{\ManualTitlePagePlace}{630000, Novosibirsk, Russia}
+\newcommand{\ManualTitlePageLogo}{pics/icons8-user-manual-100.png}
+
+\newcommand{\ManualTitlePagePrintISBN}{0-7381-1447-2 SH94690}
+\newcommand{\ManualTitlePagePDFISBN}{0-7381-1448-0 SS94690}
+
+\newcommand{\ManualTitlePagePublished}{\today. Printed in Russia.}
+\newcommand{\ManualTitlePageStandart}{IEEE Std 1058-1998}
+\newcommand{\ManualTitlePageRevision}{Revision and redesignation of IEEE Std 1058.1-1987,\\%
+	incorporating IEEE Std 1058-1998 and \\IEEE Std 1058a-1998)\\}
+
+
+\newcommand{\SetManualTitle}[1]{\def\ManualTitlePageTitle{#1}}
+\newcommand{\SetManualAbstract}[1]{\def\ManualTitlePageAbstract{#1}}
+\newcommand{\SetManualKeywords}[1]{\def\ManualTitlePageKeywords{#1}}
+\newcommand{\SetManualDate}[1]{\def\ManualTitlePageDate{#1}}
+\newcommand{\SetManualDev}[1][Bondarenko M.A.]{\def\ManualTitlePageDev{#1}}
+\newcommand{\SetManualCompany}[1]{\def\ManualTitlePageCompany{#1}}
+\newcommand{\SetManualLogo}[1]{\def\ManualTitlePageLogo{#1}}
+\newcommand{\SetManualPlace}[1]{\def\ManualTitlePagePlace{#1}}
+
+\newcommand{\SetManualPrintISBN}[1]{\def\ManualTitlePagePrintISBN{#1}}
+\newcommand{\SetManualPDFISBN}[1]{\def\ManualTitlePagePDFISBN{#1}}
+
+\newcommand{\SetManualPublished}[1]{\def\ManualTitlePagePublished{#1}}
+
+
+\newcommand{\SetManualStandart}[1]{\def\ManualTitlePageStandart{#1}}
+
+\newcommand{\SetManualRevision}[1]{\def\ManualTitlePageRevision{#1}}
+
+\newcommand{\MakeManualTitlePage}{
+
+
+	%\def{\ManualTitlePageDeveloped}[1]{\def\@ManualTitlePageDeveloped{#1}}
+
+	\begin{titlepage} % Suppresses displaying the page number on the title page and the subsequent page counts as page 1
+		\setlength{\parindent}{0cm}
+
+		\setmainfont{Arial}\justifying
+		{\raggedleft\footnotesize  % Right align the title page
+		{\bf\ManualTitlePageStandart}\\%
+		{\tiny\ManualTitlePageRevision}%
+		}
+		\vspace{-1.5cm}
+		\begin{minipage}[c]{0.3\textwidth}
+			%\includegraphics[width=50px]{pics/modx-logo.jpg}
+			\hspace{-1cm}
+			\includegraphics[width=50px]{\ManualTitlePageLogo}\\
+		\end{minipage}
+
+		\vspace{.1\textheight}
+		{\Huge\bf\noindent\ManualTitlePageTitle}\\
+		\vspace{.05\textheight}\\
+		{\footnotesize   Developed\\
+		{\bf\ManualTitlePageCompany}\\
+		\vspace{.02\textheight}\\
+		\ManualTitlePageDate\\
+		{\bf\ManualTitlePageDev}\\}
+		\vspace{.05\textheight}\\
+		{\footnotesize{\bf Abstract:} \ManualTitlePageAbstract\\
+		{\bf Keywords:} \ManualTitlePageKeywords\\
+		}
+		\vspace{.1\textheight}\\
+		{\scriptsize
+		\rule{1.5cm}{0.4pt}\\
+		\ManualTitlePageCompany, Inc.\\
+		\ManualTitlePagePlace\\
+
+		\noindent Copyright \copyright~\the\year~by \ManualTitlePageCompany, Inc.\\
+		All rights reserved. Published \ManualTitlePagePublished\\
+
+		\noindent Print: ISBN~\ManualTitlePagePrintISBN\\
+		PDF: ISBN~\ManualTitlePagePDFISBN\\
+
+		{\noindent\it No part of this publication may be reproduced in any form, in an electronic retrieval system
+		or otherwise, without the prior written permission of the publisher.}
+
+		}
+		% \rule{1pt}{\textheight} % Vertical line
+		%\hspace{0.05\textwidth} % Whitespace between the vertical line and title page text
+		%\parbox[b]{0.75\textwidth}{ % Paragraph box for holding the title page text, adjust the width to move the title page left or right on the page       
+		% {\Huge\bfseries{Грузоперевозки\\[0.5\baselineskip] веб-сайт }}\\[2\baselineskip] % Title
+		% {\large\textit{MODX Revolution 2.7.0}}\\[4\baselineskip] % Subtitle or further description
+		% {\Large\textsc{пользовательская документация}} % Author name, lower case for consistent small caps
+		% \vspace{0.5\textheight} % Whitespace between the title block and the publisher
+		% {\noindent \today.~~\plogo}\\[\baselineskip] % Publisher and logo
+
+
+	\end{titlepage}
+}
+
+
+
+

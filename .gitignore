@@ -1,0 +1,13 @@
+build/work-template.aux
+build/work-template.bbl
+build/work-template.bcf
+build/work-template.blg
+build/work-template.fdb_latexmk
+build/work-template.fls
+build/work-template.log
+build/work-template.out
+build/work-template.run.xml
+build/work-template.synctex.gz
+build/work-template.toc
+indent.log
+.vscode

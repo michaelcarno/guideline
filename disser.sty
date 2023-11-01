@@ -1,0 +1,181 @@
+\ProvidesPackage{disser}
+
+
+\RequirePackage[left=30mm,right=15mm,top=20mm,bottom=20mm,headsep=0pt]{geometry}
+\RequirePackage{indentfirst} % краснакя строка после заголовка
+\RequirePackage[warn]{mathtext}
+
+\RequirePackage{setspace}
+
+\RequirePackage[nottoc]{tocbibind}
+
+\linespread{1.42}
+%\setstretch{1.5} 
+
+\renewcommand\contentsname{Оглавление} %%% renaming the Table of Contents
+
+%\renewcommand{\baselinestretch}{1.5}% old version 
+
+
+\pagestyle{plain}
+\pagenumbering{arabic}
+\raggedbottom
+\onecolumn 
+
+
+%\renewcommand{\l@section}{\@dottedtocline{2}{10mm}{2.1em}} % точки после section в TOC
+
+
+
+% Точки после номеров в библиографии. Несовместимо с natbib! -- Коротков И.
+%\renewcommand*{\@biblabel}[1]{\hfill#1.}
+
+
+% точка разделитель 
+\RequirePackage{caption}
+\DeclareCaptionLabelSeparator{dot}{:  }
+\captionsetup{justification=centering,labelsep=dot}
+
+
+\captionsetup[table]{belowskip=10pt,aboveskip=15pt, position=auto,justification=centering,%RaggedRight 
+singlelinecheck=false }
+
+
+\captionsetup[subfigure]{justification=centering}
+
+
+
+
+
+
+
+
+
+%\captionsetup[table]{position=top,margin={-5ex,-10pt}}
+%\RequirePackage[center]{caption2}
+%\renewcommand\captionlabeldelim{. }
+
+
+% 3.6 Абзацный отступ - 15..17 мм
+\setlength\parindent{2.5em}
+
+\newtheorem{theorem}{Теорема}%[section]
+
+%\renewcommand{\thetheorem}%
+%{\thesection.\arabic{theorem}}
+%{\arabic{theorem}}
+%{\arabic{theorem}}
+
+%\newtheoremstyle{\thmname{#1}\thmnumber{ #2}:\thmnote{ #3}}
+
+
+%\@addtoreset{equation}{section}
+%\renewcommand{\theequation}%
+%{\thesection.\arabic{equation}}
+
+%{\arabic{theorem}.}
+
+
+
+% Дабы было в приложении "А.1" в качестве номера рисунка
+
+\newcommand\PicInChapter{%
+ \@addtoreset{figure}{section}%
+
+ \renewcommand{\thefigure}{\thesection.\arabic{figure}}%
+}
+
+%приложения
+\renewcommand\appendix{\par
+
+ \setcounter{secnumdepth}{4}
+ \setcounter{section}{0}%
+\PicInChapter
+%\EqInChapter\PicInChapter\TableInChapter%
+
+	\setcounter{section}{0}%
+
+	\renewcommand\thesection{\Asbuk{section}}
+%\gdef\thesection{ \@Asbuk\c@section} 
+}
+
+
+%перечисления
+%\renewcommand{\labelitemi}{\normalfont\bfseries{--}}
+
+
+%%%%%	Команда для приложений
+
+\newcommand{\append}[1]
+{
+%\clearpage
+%\addtocounter{section}{1}
+
+	\setcounter{section}{1}%
+
+\section*{\appendixname \  \Asbuk{section}. #1 }
+\addcontentsline{toc}{section}{\appendixname \ \Asbuk{section}. #1}
+} 
+
+%\newcommand\append[1]{
+%\clearpage
+%\refstepcounter{section}
+%\section*{\appendixname~\thesection{}.~#1}
+%\phantomsection
+%\addcontentsline{toc}{section}{\appendixname~\thesection{}.~#1}} 
+
+
+
+%%%%%%%%%%%% Заменяем название основных разделов
+
+%\addto\captionsrussian{%список использованных источников
+% \def\bibname{%
+%  \CYRS\cyrp\cyri\cyrs\cyro\cyrk~
+%  \cyri\cyrs\cyrp\cyro\cyrl\cyrsftsn\cyrz\cyro\cyrv\cyra\cyrn\cyrn\cyrery\cyrh~
+%  \cyri\cyrs\cyrt\cyro\cyrch\cyrn\cyri\cyrk\cyro\cyrv}%
+%}
+
+%\addto\captionsrussian{%список использованных источников
+%\def\refname{%
+%  \CYRS\cyrp\cyri\cyrs\cyro\cyrk~
+%  \cyri\cyrs\cyrp\cyro\cyrl\cyrsftsn\cyrz\cyro\cyrv\cyra\cyrn\cyrn\cyrery\cyrh~
+%  \cyri\cyrs\cyrt\cyro\cyrch\cyrn\cyri\cyrk\cyro\cyrv}%
+%}
+
+
+
+% [1] -> 1. in the bibliography 
+%\makeatletter
+%\renewcommand*\@biblabel[1]{#1.} 
+%\renewcommand*{\@biblabel}[1]{\hfill#1.}
+%\makeatother
+
+
+
+
+\newcommand{\Introduction}
+{
+\clearpage
+\phantomsection
+\section*{Введение}
+\addcontentsline{toc}{section}{Введение}
+}
+\newcommand\Conclusion{%заключение
+\clearpage
+ \section*{Заключение}%
+ \phantomsection
+\addcontentsline{toc}{section}{Заключение}
+}
+
+
+%%%%%%%%%%%%%%%%%%%
+
+
+
+\renewcommand{\arraystretch}{1.2}  % высота ячейки
+
+
+%\renewcommand{\subsubsection}{\@startsection{subsubsection}{3}{0pt}%
+%{3.5ex plus 1ex minus .2ex}{2.3ex plus.2ex}{\large\bf}}
+
+\renewcommand\phi{\varphi}

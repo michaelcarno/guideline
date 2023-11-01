@@ -1,0 +1,12 @@
+\clearpage
+\ifdefmacro{\microtypesetup}{\microtypesetup{protrusion=false}}{} % не рекомендуется применять пакет микротипографики к автоматически генерируемым спискам
+\phantomsection
+\listoffigures  % Список изображений
+
+%%% Список таблиц %%%
+% (ГОСТ Р 7.0.11-2011, 5.3.10)
+\clearpage
+\phantomsection
+\listoftables   % Список таблиц
+\ifdefmacro{\microtypesetup}{\microtypesetup{protrusion=true}}{}
+\newpage
