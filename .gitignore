@@ -11,3 +11,6 @@ build/work-template.synctex.gz
 build/work-template.toc
 indent.log
 .vscode
+work-template.synctex.gz
+build/work-template1.pdf
+build/rules.pdf
